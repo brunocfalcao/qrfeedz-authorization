@@ -8,6 +8,7 @@ use QRFeedz\Authorization\Gates\CountryGates;
 use QRFeedz\Authorization\Gates\OrganizationGates;
 use QRFeedz\Authorization\Gates\PlaceGates;
 use QRFeedz\Authorization\Gates\QuestionGates;
+use QRFeedz\Authorization\Gates\QuestionnaireGates;
 use QRFeedz\Authorization\Gates\ResponseGates;
 use QRFeedz\Authorization\Gates\TagGates;
 use QRFeedz\Authorization\Gates\UserGates;
