@@ -4,6 +4,7 @@ namespace QRFeedz\Authorization;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use QRFeedz\Authorization\Gates\AuthorizationGates;
 use QRFeedz\Authorization\Gates\CategoryGates;
 use QRFeedz\Authorization\Gates\CountryGates;
 use QRFeedz\Authorization\Gates\OrganizationGates;
@@ -58,6 +59,7 @@ class AuthorizationServiceProvider extends ServiceProvider
         QuestionGates::apply();
         CategoryGates::apply();
         OrganizationGates::apply();
+        AuthorizationGates::apply();
         QuestionnaireGates::apply();
     }
 
