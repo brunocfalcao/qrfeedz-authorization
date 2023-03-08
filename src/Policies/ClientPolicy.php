@@ -2,10 +2,10 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Authorization\Models\Organization;
+use QRFeedz\Authorization\Models\Client;
 use QRFeedz\Authorization\Models\User;
 
-class OrganizationPolicy
+class ClientPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -18,7 +18,7 @@ class OrganizationPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Organization $organization): bool
+    public function view(User $user, Client $client): bool
     {
         //
     }
@@ -34,7 +34,7 @@ class OrganizationPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Organization $organization): bool
+    public function update(User $user, Client $client): bool
     {
         //
     }
@@ -42,7 +42,7 @@ class OrganizationPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Organization $organization): bool
+    public function delete(User $user, Client $client): bool
     {
         //
     }
@@ -50,7 +50,7 @@ class OrganizationPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Organization $organization): bool
+    public function restore(User $user, Client $client): bool
     {
         //
     }
@@ -58,7 +58,7 @@ class OrganizationPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Organization $organization): bool
+    public function forceDelete(User $user, Client $client): bool
     {
         //
     }

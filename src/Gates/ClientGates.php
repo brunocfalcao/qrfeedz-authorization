@@ -4,7 +4,7 @@ namespace QRFeedz\Authorization\Gates;
 
 use Illuminate\Support\Facades\Gate;
 
-class OrganizationGates
+class ClientGates
 {
     public static function apply()
     {

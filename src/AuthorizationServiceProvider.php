@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use QRFeedz\Authorization\Gates\AuthorizationGates;
 use QRFeedz\Authorization\Gates\CategoryGates;
 use QRFeedz\Authorization\Gates\CountryGates;
-use QRFeedz\Authorization\Gates\OrganizationGates;
+use QRFeedz\Authorization\Gates\ClientGates;
 use QRFeedz\Authorization\Gates\PlaceGates;
 use QRFeedz\Authorization\Gates\QuestionGates;
 use QRFeedz\Authorization\Gates\QuestionnaireGates;
@@ -17,7 +17,7 @@ use QRFeedz\Authorization\Gates\UserGates;
 use QRFeedz\Authorization\Gates\WidgetGates;
 use QRFeedz\Authorization\Policies\CategoryPolicy;
 use QRFeedz\Authorization\Policies\CountryPolicy;
-use QRFeedz\Authorization\Policies\OrganizationPolicy;
+use QRFeedz\Authorization\Policies\ClientPolicy;
 use QRFeedz\Authorization\Policies\PlacePolicy;
 use QRFeedz\Authorization\Policies\QuestionnairePolicy;
 use QRFeedz\Authorization\Policies\QuestionPolicy;
@@ -27,7 +27,7 @@ use QRFeedz\Authorization\Policies\UserPolicy;
 use QRFeedz\Authorization\Policies\WidgetPolicy;
 use QRFeedz\Cube\Models\Category;
 use QRFeedz\Cube\Models\Country;
-use QRFeedz\Cube\Models\Organization;
+use QRFeedz\Cube\Models\Client;
 use QRFeedz\Cube\Models\Place;
 use QRFeedz\Cube\Models\Question;
 use QRFeedz\Cube\Models\Questionnaire;
@@ -58,7 +58,7 @@ class AuthorizationServiceProvider extends ServiceProvider
         ResponseGates::apply();
         QuestionGates::apply();
         CategoryGates::apply();
-        OrganizationGates::apply();
+        ClientGates::apply();
         AuthorizationGates::apply();
         QuestionnaireGates::apply();
     }
@@ -73,7 +73,7 @@ class AuthorizationServiceProvider extends ServiceProvider
         Gate::policy(Question::class, QuestionPolicy::class);
         Gate::policy(Category::class, CategoryPolicy::class);
         Gate::policy(Response::class, ResponsePolicy::class);
-        Gate::policy(Organization::class, OrganizationPolicy::class);
+        Gate::policy(Client::class, ClientPolicy::class);
         Gate::policy(Questionnaire::class, QuestionnairePolicy::class);
     }
 }
