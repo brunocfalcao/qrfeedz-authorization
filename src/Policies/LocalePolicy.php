@@ -2,10 +2,10 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Authorization\Models\Place;
+use QRFeedz\Authorization\Models\Locale;
 use QRFeedz\Authorization\Models\User;
 
-class PlacePolicy
+class LocalePolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -18,7 +18,7 @@ class PlacePolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Place $place): bool
+    public function view(User $user, Locale $locale): bool
     {
         //
     }
@@ -34,7 +34,7 @@ class PlacePolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Place $place): bool
+    public function update(User $user, Locale $locale): bool
     {
         //
     }
@@ -42,7 +42,7 @@ class PlacePolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Place $place): bool
+    public function delete(User $user, Locale $locale): bool
     {
         //
     }
@@ -50,7 +50,7 @@ class PlacePolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Place $place): bool
+    public function restore(User $user, Locale $locale): bool
     {
         //
     }
@@ -58,7 +58,7 @@ class PlacePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Place $place): bool
+    public function forceDelete(User $user, Locale $locale): bool
     {
         //
     }
