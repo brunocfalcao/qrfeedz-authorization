@@ -39,8 +39,8 @@ class UserPolicy
              * and the logged user has "admin" permissions on the client.
              */
             (
-                $instance->client_id == $user->client_id &&
-                is_authorized($user, 'admin', ['client_id' => $user->client_id])
+                $instance->client_id == $user->client_id
+
             ) ||
             /**
              * The user is him/herself.
@@ -64,9 +64,8 @@ class UserPolicy
          */
         return
         // Is super admin.
-        $user->is_admin ||
+        $user->is_admin;
         // Has at least an admin role somewhere in a client
-        is_authorized($user, 'admin', 'client_id');
     }
 
     /**
