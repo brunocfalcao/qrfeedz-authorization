@@ -2,8 +2,8 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Authorization\Models\Country;
-use QRFeedz\Authorization\Models\User;
+use QRFeedz\Cube\Models\Country;
+use QRFeedz\Cube\Models\User;
 
 class CountryPolicy
 {
@@ -12,7 +12,7 @@ class CountryPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -20,7 +20,7 @@ class CountryPolicy
      */
     public function view(User $user, Country $country): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class CountryPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -36,7 +36,7 @@ class CountryPolicy
      */
     public function update(User $user, Country $country): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -44,7 +44,7 @@ class CountryPolicy
      */
     public function delete(User $user, Country $country): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -52,7 +52,7 @@ class CountryPolicy
      */
     public function restore(User $user, Country $country): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -60,6 +60,6 @@ class CountryPolicy
      */
     public function forceDelete(User $user, Country $country): bool
     {
-        //
+        return true;
     }
 }

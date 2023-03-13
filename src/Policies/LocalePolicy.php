@@ -2,8 +2,8 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Authorization\Models\Locale;
-use QRFeedz\Authorization\Models\User;
+use QRFeedz\Cube\Models\Locale;
+use QRFeedz\Cube\Models\User;
 
 class LocalePolicy
 {
@@ -12,7 +12,7 @@ class LocalePolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -20,7 +20,7 @@ class LocalePolicy
      */
     public function view(User $user, Locale $locale): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class LocalePolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -36,7 +36,7 @@ class LocalePolicy
      */
     public function update(User $user, Locale $locale): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -44,7 +44,7 @@ class LocalePolicy
      */
     public function delete(User $user, Locale $locale): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -52,7 +52,7 @@ class LocalePolicy
      */
     public function restore(User $user, Locale $locale): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -60,6 +60,6 @@ class LocalePolicy
      */
     public function forceDelete(User $user, Locale $locale): bool
     {
-        //
+        return true;
     }
 }

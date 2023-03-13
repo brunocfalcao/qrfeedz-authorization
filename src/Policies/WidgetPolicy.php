@@ -2,8 +2,8 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Authorization\Models\User;
-use QRFeedz\Authorization\Models\Widget;
+use QRFeedz\Cube\Models\User;
+use QRFeedz\Cube\Models\Widget;
 
 class WidgetPolicy
 {
@@ -12,7 +12,7 @@ class WidgetPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -20,7 +20,7 @@ class WidgetPolicy
      */
     public function view(User $user, Widget $widget): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class WidgetPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -36,7 +36,7 @@ class WidgetPolicy
      */
     public function update(User $user, Widget $widget): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -44,7 +44,7 @@ class WidgetPolicy
      */
     public function delete(User $user, Widget $widget): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -52,7 +52,7 @@ class WidgetPolicy
      */
     public function restore(User $user, Widget $widget): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -60,6 +60,6 @@ class WidgetPolicy
      */
     public function forceDelete(User $user, Widget $widget): bool
     {
-        //
+        return true;
     }
 }

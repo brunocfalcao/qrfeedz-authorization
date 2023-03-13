@@ -2,8 +2,8 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Authorization\Models\Client;
-use QRFeedz\Authorization\Models\User;
+use QRFeedz\Cube\Models\Client;
+use QRFeedz\Cube\Models\User;
 
 class ClientPolicy
 {
@@ -12,7 +12,7 @@ class ClientPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -20,7 +20,7 @@ class ClientPolicy
      */
     public function view(User $user, Client $client): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class ClientPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -36,7 +36,7 @@ class ClientPolicy
      */
     public function update(User $user, Client $client): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -44,7 +44,7 @@ class ClientPolicy
      */
     public function delete(User $user, Client $client): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -52,7 +52,7 @@ class ClientPolicy
      */
     public function restore(User $user, Client $client): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -60,6 +60,6 @@ class ClientPolicy
      */
     public function forceDelete(User $user, Client $client): bool
     {
-        //
+        return true;
     }
 }

@@ -2,8 +2,8 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Authorization\Models\Authorization;
-use QRFeedz\Authorization\Models\User;
+use QRFeedz\Cube\Models\Authorization;
+use QRFeedz\Cube\Models\User;
 
 class AuthorizationPolicy
 {
@@ -12,7 +12,7 @@ class AuthorizationPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -20,7 +20,7 @@ class AuthorizationPolicy
      */
     public function view(User $user, Authorization $authorization): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class AuthorizationPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -36,7 +36,7 @@ class AuthorizationPolicy
      */
     public function update(User $user, Authorization $authorization): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -44,7 +44,7 @@ class AuthorizationPolicy
      */
     public function delete(User $user, Authorization $authorization): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -52,7 +52,7 @@ class AuthorizationPolicy
      */
     public function restore(User $user, Authorization $authorization): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -60,6 +60,6 @@ class AuthorizationPolicy
      */
     public function forceDelete(User $user, Authorization $authorization): bool
     {
-        //
+        return true;
     }
 }

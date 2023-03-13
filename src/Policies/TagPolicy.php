@@ -2,8 +2,8 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Authorization\Models\Tag;
-use QRFeedz\Authorization\Models\User;
+use QRFeedz\Cube\Models\Tag;
+use QRFeedz\Cube\Models\User;
 
 class TagPolicy
 {
@@ -12,7 +12,7 @@ class TagPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -20,7 +20,7 @@ class TagPolicy
      */
     public function view(User $user, Tag $tag): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -28,7 +28,7 @@ class TagPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -36,7 +36,7 @@ class TagPolicy
      */
     public function update(User $user, Tag $tag): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -44,7 +44,7 @@ class TagPolicy
      */
     public function delete(User $user, Tag $tag): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -52,7 +52,7 @@ class TagPolicy
      */
     public function restore(User $user, Tag $tag): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -60,6 +60,6 @@ class TagPolicy
      */
     public function forceDelete(User $user, Tag $tag): bool
     {
-        //
+        return true;
     }
 }
