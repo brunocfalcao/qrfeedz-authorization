@@ -12,21 +12,21 @@ class UserPolicy
         return true;
     }
 
-    public function view(User $user, User $instance): bool
+    public function view(User $user, User $model): bool
     {
         return
             // The user is a super admin.
             $user->is_admin ||
             (
                 // The instance and the user belong to the same client.
-                $instance->client_id == $user->client_id &&
+                $model->client_id == $user->client_id &&
 
                 // The user has an "admin" authorization on this client.
                 $user->isAuthorizedAs($user->client, 'admin')
 
             ) ||
             // The user is himself.
-            $instance->id == $user->id;
+            $model->id == $user->id;
     }
 
     public function create(User $user): bool
@@ -46,7 +46,7 @@ class UserPolicy
             $user->is_admin ||
 
             // The user is himself.
-            $instance->id == $user->id ||
+            $model->id == $user->id ||
 
             // The user has an "admin" authorization on this client.
             $user->isAuthorizedAs($user->client, 'admin');
