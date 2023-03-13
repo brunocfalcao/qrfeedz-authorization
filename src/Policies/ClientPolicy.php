@@ -7,58 +7,47 @@ use QRFeedz\Cube\Models\User;
 
 class ClientPolicy
 {
-    /**
-     * Determine whether the user can view any models.
-     */
     public function viewAny(User $user): bool
     {
+        // Anyone registered can view user resources.
         return true;
     }
 
-    /**
-     * Determine whether the user can view the model.
-     */
-    public function view(User $user, Client $client): bool
+    public function view(User $user, Client $model): bool
     {
-        return true;
+        return
+            // The user is a super admin.
+            $user->is_admin || (
+
+                // The instance and the user belong to the same client.
+                $model->id == $user->client_id &&
+
+                // The user has an "admin" authorization on this client.
+                $user->isAuthorizedAs($user->client, 'admin')
+            );
     }
 
-    /**
-     * Determine whether the user can create models.
-     */
     public function create(User $user): bool
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, Client $client): bool
+    public function update(User $user, Client $model): bool
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Client $client): bool
+    public function delete(User $user, Client $model): bool
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Client $client): bool
+    public function restore(User $user, Client $model): bool
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Client $client): bool
+    public function forceDelete(User $user, Client $model): bool
     {
         return true;
     }
