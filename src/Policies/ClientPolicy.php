@@ -65,11 +65,13 @@ class ClientPolicy
 
     public function restore(User $user, Client $model): bool
     {
+        // TODO.
         return true;
     }
 
     public function forceDelete(User $user, Client $model): bool
     {
+        // TODO.
         return true;
     }
 }
