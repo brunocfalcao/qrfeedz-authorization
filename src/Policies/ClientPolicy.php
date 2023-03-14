@@ -16,30 +16,51 @@ class ClientPolicy
     public function view(User $user, Client $model): bool
     {
         return
+            // The user has an "affiliate" authorization on the client instance.
+            $user->isAuthorizedAs($model, 'affiliate') ||
+
             // The user is a super admin.
             $user->is_admin || (
 
-                // The instance and the user belong to the same client.
+                // The logged user belongs to the client instance.
                 $model->id == $user->client_id &&
 
-                // The user has an "admin" authorization on this client.
-                $user->isAuthorizedAs($user->client, 'admin')
+                // The logged user is "admin" on the client instance.
+                $user->isAuthorizedAs($model, 'admin')
             );
     }
 
     public function create(User $user): bool
     {
-        return true;
+        return
+            // The user is an affiliate.
+            $user->is_affiliate ||
+
+            // The user is a super admin.
+            $user->is_admin;
     }
 
     public function update(User $user, Client $model): bool
     {
-        return true;
+        return
+            // The user has an "affiliate" authorization on the client instance.
+            $user->isAuthorizedAs($model, 'affiliate') ||
+
+            // The user is a super admin.
+            $user->is_admin || (
+
+                // The logged user belongs to the client instance.
+                $model->id == $user->client_id &&
+
+                // The logged user is "admin" on the client instance.
+                $user->isAuthorizedAs($model, 'admin')
+            );
     }
 
     public function delete(User $user, Client $model): bool
     {
-        return true;
+        // TODO.
+        return false;
     }
 
     public function restore(User $user, Client $model): bool
