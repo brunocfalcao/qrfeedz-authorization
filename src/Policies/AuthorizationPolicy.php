@@ -18,7 +18,7 @@ class AuthorizationPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Authorization $authorization): bool
+    public function view(User $user, Authorization $model): bool
     {
         return true;
     }
@@ -34,7 +34,7 @@ class AuthorizationPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Authorization $authorization): bool
+    public function update(User $user, Authorization $model): bool
     {
         return true;
     }
@@ -42,7 +42,7 @@ class AuthorizationPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Authorization $authorization): bool
+    public function delete(User $user, Authorization $model): bool
     {
         return true;
     }
@@ -50,7 +50,7 @@ class AuthorizationPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Authorization $authorization): bool
+    public function restore(User $user, Authorization $model): bool
     {
         return true;
     }
@@ -58,7 +58,7 @@ class AuthorizationPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Authorization $authorization): bool
+    public function forceDelete(User $user, Authorization $model): bool
     {
         return true;
     }

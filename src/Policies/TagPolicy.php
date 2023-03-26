@@ -18,7 +18,7 @@ class TagPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Tag $tag): bool
+    public function view(User $user, Tag $model): bool
     {
         return true;
     }
@@ -34,7 +34,7 @@ class TagPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Tag $tag): bool
+    public function update(User $user, Tag $model): bool
     {
         return true;
     }
@@ -42,7 +42,7 @@ class TagPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Tag $tag): bool
+    public function delete(User $user, Tag $model): bool
     {
         return true;
     }
@@ -50,7 +50,7 @@ class TagPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Tag $tag): bool
+    public function restore(User $user, Tag $model): bool
     {
         return true;
     }
@@ -58,7 +58,7 @@ class TagPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Tag $tag): bool
+    public function forceDelete(User $user, Tag $model): bool
     {
         return true;
     }
