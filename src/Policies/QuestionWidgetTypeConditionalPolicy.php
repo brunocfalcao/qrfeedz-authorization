@@ -2,10 +2,10 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Cube\Models\QuestionWidgetConditional;
+use QRFeedz\Cube\Models\QuestionWidgetTypeConditional;
 use QRFeedz\Cube\Models\User;
 
-class QuestionWidgetConditionalPolicy
+class QuestionWidgetTypeConditionalPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -18,7 +18,7 @@ class QuestionWidgetConditionalPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, QuestionWidgetConditional $model): bool
+    public function view(User $user, QuestionWidgetTypeConditional $model): bool
     {
         return true;
     }
@@ -34,7 +34,7 @@ class QuestionWidgetConditionalPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, QuestionWidgetConditional $model): bool
+    public function update(User $user, QuestionWidgetTypeConditional $model): bool
     {
         return true;
     }
@@ -42,7 +42,7 @@ class QuestionWidgetConditionalPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, QuestionWidgetConditional $model): bool
+    public function delete(User $user, QuestionWidgetTypeConditional $model): bool
     {
         return true;
     }
@@ -50,7 +50,7 @@ class QuestionWidgetConditionalPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, QuestionWidgetConditional $model): bool
+    public function restore(User $user, QuestionWidgetTypeConditional $model): bool
     {
         return true;
     }
@@ -58,7 +58,7 @@ class QuestionWidgetConditionalPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, QuestionWidgetConditional $model): bool
+    public function forceDelete(User $user, QuestionWidgetTypeConditional $model): bool
     {
         return true;
     }

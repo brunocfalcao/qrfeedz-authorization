@@ -16,7 +16,7 @@ use QRFeedz\Authorization\Gates\PageTypeGates;
 use QRFeedz\Authorization\Gates\PageTypeQuestionnaireGates;
 use QRFeedz\Authorization\Gates\QuestionGates;
 use QRFeedz\Authorization\Gates\QuestionnaireGates;
-use QRFeedz\Authorization\Gates\QuestionWidgetConditionalGates;
+use QRFeedz\Authorization\Gates\QuestionWidgetTypeConditionalGates;
 use QRFeedz\Authorization\Gates\ResponseGates;
 use QRFeedz\Authorization\Gates\TagGates;
 use QRFeedz\Authorization\Gates\UserGates;
@@ -84,7 +84,7 @@ class AuthorizationServiceProvider extends ServiceProvider
         AuthorizationGates::apply();
         QuestionnaireGates::apply();
         PageTypeQuestionnaireGates::apply();
-        QuestionWidgetConditionalGates::apply();
+        QuestionWidgetTypeConditionalGates::apply();
     }
 
     protected function registerPolicies(): void
