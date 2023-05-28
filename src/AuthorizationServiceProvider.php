@@ -87,7 +87,7 @@ class AuthorizationServiceProvider extends ServiceProvider
         QuestionWidgetTypeConditionalGates::apply();
     }
 
-    protected function registerPolicies(): void
+    protected function registerPolicies()
     {
         Gate::policy(Tag::class, TagPolicy::class);
         Gate::policy(User::class, UserPolicy::class);

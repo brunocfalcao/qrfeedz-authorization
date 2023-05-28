@@ -7,13 +7,13 @@ use QRFeedz\Cube\Models\User;
 
 class ClientPolicy
 {
-    public function viewAny(User $user): bool
+    public function viewAny(User $user)
     {
         // Anyone registered can view user resources.
         return true;
     }
 
-    public function view(User $user, Client $model): bool
+    public function view(User $user, Client $model)
     {
         return
             // The user has an "affiliate" authorization on the client instance.
@@ -30,7 +30,7 @@ class ClientPolicy
             );
     }
 
-    public function create(User $user): bool
+    public function create(User $user)
     {
         return
             // The user is an affiliate.
@@ -40,7 +40,7 @@ class ClientPolicy
             $user->is_admin;
     }
 
-    public function update(User $user, Client $model): bool
+    public function update(User $user, Client $model)
     {
         return
             // The user has an "affiliate" authorization on the client instance.
@@ -57,19 +57,19 @@ class ClientPolicy
             );
     }
 
-    public function delete(User $user, Client $model): bool
+    public function delete(User $user, Client $model)
     {
         // TODO.
         return false;
     }
 
-    public function restore(User $user, Client $model): bool
+    public function restore(User $user, Client $model)
     {
         // TODO.
         return true;
     }
 
-    public function forceDelete(User $user, Client $model): bool
+    public function forceDelete(User $user, Client $model)
     {
         // TODO.
         return true;

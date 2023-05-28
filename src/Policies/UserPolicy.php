@@ -6,13 +6,13 @@ use QRFeedz\Cube\Models\User;
 
 class UserPolicy
 {
-    public function viewAny(User $user): bool
+    public function viewAny(User $user)
     {
         // Anyone registered can view user resources.
         return true;
     }
 
-    public function view(User $user, User $model): bool
+    public function view(User $user, User $model)
     {
         return
             /**
@@ -35,7 +35,7 @@ class UserPolicy
             $model->id == $user->id;
     }
 
-    public function create(User $user): bool
+    public function create(User $user)
     {
         return
             // The user has an "affiliate" authorization on this client.
@@ -48,7 +48,7 @@ class UserPolicy
             $user->isAtLeastAuthorizedAs('admin');
     }
 
-    public function update(User $user, User $model): bool
+    public function update(User $user, User $model)
     {
         return
             // The user is a super admin.
@@ -61,7 +61,7 @@ class UserPolicy
             $user->isAuthorizedAs($model->client, 'admin');
     }
 
-    public function delete(User $user, User $model): bool
+    public function delete(User $user, User $model)
     {
         return
             (
@@ -79,7 +79,7 @@ class UserPolicy
             $user->id != $model->id;
     }
 
-    public function restore(User $user, User $model): bool
+    public function restore(User $user, User $model)
     {
         return
             // The user has an "affiliate" authorization on this client.
@@ -92,7 +92,7 @@ class UserPolicy
             $user->isAuthorizedAs($model->client, 'admin');
     }
 
-    public function forceDelete(User $user, User $model): bool
+    public function forceDelete(User $user, User $model)
     {
         // The user is a super admin.
         return $user->is_admin;
