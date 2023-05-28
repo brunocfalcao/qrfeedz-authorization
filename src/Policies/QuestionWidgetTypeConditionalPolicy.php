@@ -2,7 +2,7 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Cube\Models\Pivots\QuestionWidgetTypeConditional;
+use QRFeedz\Cube\Models\QuestionWidgetTypeConditional;
 use QRFeedz\Cube\Models\User;
 
 class QuestionWidgetTypeConditionalPolicy
