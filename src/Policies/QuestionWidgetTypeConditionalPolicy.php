@@ -2,8 +2,8 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Cube\Models\QuestionWidgetTypeConditional;
 use QRFeedz\Cube\Models\User;
+use QRFeedz\Cube\Models\WidgetInstanceConditional;
 
 class QuestionWidgetTypeConditionalPolicy
 {
@@ -18,7 +18,7 @@ class QuestionWidgetTypeConditionalPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, QuestionWidgetTypeConditional $model)
+    public function view(User $user, WidgetInstanceConditional $model)
     {
         return true;
     }
@@ -34,7 +34,7 @@ class QuestionWidgetTypeConditionalPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, QuestionWidgetTypeConditional $model)
+    public function update(User $user, WidgetInstanceConditional $model)
     {
         return true;
     }
@@ -42,7 +42,7 @@ class QuestionWidgetTypeConditionalPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, QuestionWidgetTypeConditional $model)
+    public function delete(User $user, WidgetInstanceConditional $model)
     {
         return true;
     }
@@ -50,7 +50,7 @@ class QuestionWidgetTypeConditionalPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, QuestionWidgetTypeConditional $model)
+    public function restore(User $user, WidgetInstanceConditional $model)
     {
         return true;
     }
@@ -58,7 +58,7 @@ class QuestionWidgetTypeConditionalPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, QuestionWidgetTypeConditional $model)
+    public function forceDelete(User $user, WidgetInstanceConditional $model)
     {
         return true;
     }
