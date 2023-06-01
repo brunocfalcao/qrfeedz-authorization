@@ -17,10 +17,10 @@ class ClientPolicy
     {
         return
             // The user has an "affiliate" authorization on the client instance.
-            $user->isAuthorizedAs($model, 'affiliate') ||
+            $user->isAffiliateOf($model) ||
 
             // The user is a super admin.
-            $user->is_admin || (
+            $user->is_super_admin || (
 
                 // The logged user belongs to the client instance.
                 $model->id == $user->client_id &&
@@ -37,17 +37,17 @@ class ClientPolicy
             $user->is_affiliate ||
 
             // The user is a super admin.
-            $user->is_admin;
+            $user->is_super_admin;
     }
 
     public function update(User $user, Client $model)
     {
         return
             // The user has an "affiliate" authorization on the client instance.
-            $user->isAuthorizedAs($model, 'affiliate') ||
+            $user->isAffiliateOf($model) ||
 
             // The user is a super admin.
-            $user->is_admin || (
+            $user->is_super_admin || (
 
                 // The logged user belongs to the client instance.
                 $model->id == $user->client_id &&
