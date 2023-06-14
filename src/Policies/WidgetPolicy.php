@@ -5,7 +5,7 @@ namespace QRFeedz\Authorization\Policies;
 use QRFeedz\Cube\Models\User;
 use QRFeedz\Cube\Models\Widget;
 
-class WidgetTypePolicy
+class WidgetPolicy
 {
     /**
      * Determine whether the user can view any models.
