@@ -13,7 +13,7 @@ use QRFeedz\Authorization\Gates\GroupGates;
 use QRFeedz\Authorization\Gates\LocaleGates;
 use QRFeedz\Authorization\Gates\OpenAIPromptGates;
 use QRFeedz\Authorization\Gates\PageGates;
-use QRFeedz\Authorization\Gates\QuestionGates;
+use QRFeedz\Authorization\Gates\QuestionInstanceGates;
 use QRFeedz\Authorization\Gates\QuestionnaireGates;
 use QRFeedz\Authorization\Gates\QuestionWidgetTypeConditionalGates;
 use QRFeedz\Authorization\Gates\ResponseGates;
@@ -43,7 +43,7 @@ use QRFeedz\Cube\Models\Group;
 use QRFeedz\Cube\Models\Locale;
 use QRFeedz\Cube\Models\OpenAIPrompt;
 use QRFeedz\Cube\Models\Page;
-use QRFeedz\Cube\Models\Question;
+use QRFeedz\Cube\Models\QuestionInstance;
 use QRFeedz\Cube\Models\Questionnaire;
 use QRFeedz\Cube\Models\QuestionWidgetConditional;
 use QRFeedz\Cube\Models\Tag;
@@ -73,7 +73,7 @@ class AuthorizationServiceProvider extends ServiceProvider
         ClientGates::apply();
         CountryGates::apply();
         ResponseGates::apply();
-        QuestionGates::apply();
+        QuestionInstanceGates::apply();
         CategoryGates::apply();
         PageGates::apply();
         AffiliateGates::apply();
@@ -86,19 +86,19 @@ class AuthorizationServiceProvider extends ServiceProvider
     protected function registerPolicies()
     {
         Gate::policy(Tag::class, TagPolicy::class);
+        Gate::policy(Page::class, PagePolicy::class);
         Gate::policy(User::class, UserPolicy::class);
         Gate::policy(Group::class, GroupPolicy::class);
         Gate::policy(Locale::class, LocalePolicy::class);
         Gate::policy(Client::class, ClientPolicy::class);
         Gate::policy(Country::class, CountryPolicy::class);
-        Gate::policy(Question::class, QuestionPolicy::class);
         Gate::policy(Category::class, CategoryPolicy::class);
         Gate::policy(Response::class, ResponsePolicy::class);
-        Gate::policy(Page::class, PagePolicy::class);
-        Gate::policy(Affiliate::class, AffiliatePolicy::class);
         Gate::policy(Widget::class, WidgetTypePolicy::class);
+        Gate::policy(Affiliate::class, AffiliatePolicy::class);
         Gate::policy(OpenAIPrompt::class, OpenAIPromptPolicy::class);
         Gate::policy(Questionnaire::class, QuestionnairePolicy::class);
+        Gate::policy(QuestionInstance::class, QuestionInstancePolicy::class);
         Gate::policy(QuestionWidgetConditional::class, QuestionWidgetConditionalPolicy::class);
     }
 }
