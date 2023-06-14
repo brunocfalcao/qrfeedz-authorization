@@ -71,6 +71,7 @@ class AuthorizationServiceProvider extends ServiceProvider
         UserGates::apply();
         PageGates::apply();
         GroupGates::apply();
+        WidgetGates::apply();
         LocaleGates::apply();
         ClientGates::apply();
         WidgetGates::apply();
