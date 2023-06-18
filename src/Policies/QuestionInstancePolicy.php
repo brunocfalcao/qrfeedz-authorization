@@ -2,63 +2,42 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Cube\Models\Question;
+use QRFeedz\Cube\Models\QuestionInstance;
 use QRFeedz\Cube\Models\User;
 
 class QuestionInstancePolicy
 {
-    /**
-     * Determine whether the user can view any models.
-     */
     public function viewAny(User $user)
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can view the model.
-     */
-    public function view(User $user, Question $model)
+    public function view(User $user, QuestionInstance $model)
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can create models.
-     */
     public function create(User $user)
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, Question $model)
+    public function update(User $user, QuestionInstance $model)
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Question $model)
+    public function delete(User $user, QuestionInstance $model)
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Question $model)
+    public function restore(User $user, QuestionInstance $model)
     {
         return true;
     }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Question $model)
+    public function forceDelete(User $user, QuestionInstance $model)
     {
         return true;
     }

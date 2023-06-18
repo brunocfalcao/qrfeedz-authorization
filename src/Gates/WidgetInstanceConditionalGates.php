@@ -4,7 +4,7 @@ namespace QRFeedz\Authorization\Gates;
 
 use Illuminate\Support\Facades\Gate;
 
-class QuestionWidgetTypeConditionalGates
+class WidgetInstanceConditionalGates
 {
     public static function apply()
     {
