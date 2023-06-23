@@ -3,7 +3,6 @@
 namespace QRFeedz\Authorization;
 
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\ServiceProvider;
 use QRFeedz\Authorization\Gates\AffiliateGates;
 use QRFeedz\Authorization\Gates\AuthorizationGates;
 use QRFeedz\Authorization\Gates\CategoryGates;
@@ -54,8 +53,9 @@ use QRFeedz\Cube\Models\User;
 use QRFeedz\Cube\Models\Widget;
 use QRFeedz\Cube\Models\WidgetInstance;
 use QRFeedz\Cube\Models\WidgetInstanceConditional;
+use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
 
-class AuthorizationServiceProvider extends ServiceProvider
+class AuthorizationServiceProvider extends QRFeedzServiceProvider
 {
     public function boot()
     {
