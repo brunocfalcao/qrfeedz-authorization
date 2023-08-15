@@ -19,7 +19,6 @@ use QRFeedz\Authorization\Gates\ResponseGates;
 use QRFeedz\Authorization\Gates\TagGates;
 use QRFeedz\Authorization\Gates\UserGates;
 use QRFeedz\Authorization\Gates\WidgetGates;
-use QRFeedz\Authorization\Gates\WidgetInstanceConditionalGates;
 use QRFeedz\Authorization\Gates\WidgetInstanceGates;
 use QRFeedz\Authorization\Policies\AffiliatePolicy;
 use QRFeedz\Authorization\Policies\CategoryPolicy;
@@ -34,7 +33,6 @@ use QRFeedz\Authorization\Policies\QuestionnairePolicy;
 use QRFeedz\Authorization\Policies\ResponsePolicy;
 use QRFeedz\Authorization\Policies\TagPolicy;
 use QRFeedz\Authorization\Policies\UserPolicy;
-use QRFeedz\Authorization\Policies\WidgetInstanceConditionalPolicy;
 use QRFeedz\Authorization\Policies\WidgetInstancePolicy;
 use QRFeedz\Authorization\Policies\WidgetPolicy;
 use QRFeedz\Cube\Models\Affiliate;
@@ -52,7 +50,6 @@ use QRFeedz\Cube\Models\Tag;
 use QRFeedz\Cube\Models\User;
 use QRFeedz\Cube\Models\Widget;
 use QRFeedz\Cube\Models\WidgetInstance;
-use QRFeedz\Cube\Models\WidgetInstanceConditional;
 use QRFeedz\Foundation\Abstracts\QRFeedzServiceProvider;
 
 class AuthorizationServiceProvider extends QRFeedzServiceProvider
@@ -88,7 +85,6 @@ class AuthorizationServiceProvider extends QRFeedzServiceProvider
         QuestionnaireGates::apply();
         WidgetInstanceGates::apply();
         QuestionInstanceGates::apply();
-        WidgetInstanceConditionalGates::apply();
     }
 
     protected function registerPolicies()
@@ -109,6 +105,5 @@ class AuthorizationServiceProvider extends QRFeedzServiceProvider
         Gate::policy(OpenAIPrompt::class, OpenAIPromptPolicy::class);
         Gate::policy(Questionnaire::class, QuestionnairePolicy::class);
         Gate::policy(QuestionInstance::class, QuestionInstancePolicy::class);
-        Gate::policy(WidgetInstanceConditional::class, WidgetInstanceConditionalPolicy::class);
     }
 }
