@@ -15,17 +15,14 @@ class UserPolicy
     public function view(User $user, User $model)
     {
         return
-            // The user has an "affiliate" authorization on this client.
-            $user->isAffiliateOf($model->client) ||
-
             // The user is a super admin.
-            $user->is_super_admin ||
+            $user->isSuperAdmin() ||
             (
-                // The instance and the user belong to the same client.
+                // The user instance and the user belong to the same client.
                 $model->client_id == $user->client_id &&
 
-                // The user has an "admin" authorization on the model instance.
-                $user->isAuthorizedAs($model->client, 'admin')
+                // The user has an "client admin" authorization.
+                $user->isAuthorizedAs($user->client, 'client-admin')
 
             ) ||
             // The user is himself.
@@ -35,41 +32,35 @@ class UserPolicy
     public function create(User $user)
     {
         return
-            // The user has an "affiliate" authorization on this client.
-            $user->isAffiliateOf($model->client) ||
-
             // The user is a super admin.
-            $user->is_super_admin ||
+            $user->isSuperAdmin() ||
 
             // The user has at least one "admin" authorization.
-            $user->isAtLeastAuthorizedAs('admin');
+            $user->isAtLeastAuthorizedAs('client-admin');
     }
 
     public function update(User $user, User $model)
     {
         return
             // The user is a super admin.
-            $user->is_super_admin ||
+            $user->isSuperAdmin() ||
 
             // The user is himself.
             $model->id == $user->id ||
 
             // The user has an "admin" authorization on the model instance.
-            $user->isAuthorizedAs($model->client, 'admin');
+            $user->isAuthorizedAs($model->client, 'client-admin');
     }
 
     public function delete(User $user, User $model)
     {
         return
             (
-                // The user has an "affiliate" authorization on this client.
-                $user->isAffiliateOf($model->client) ||
-
                 // The user is a super admin.
-                $user->is_super_admin ||
+                $user->isSuperAdmin() ||
 
                 // The user has an "admin" authorization on the model instance.
-                $user->isAuthorizedAs($model->client, 'admin')
+                $user->isAuthorizedAs($model->client, 'client-admin')
             ) &&
 
             // The user cannot delete himself.
@@ -83,15 +74,15 @@ class UserPolicy
             $user->isAffiliateOf($model->client) ||
 
             // The user is a super admin.
-            $user->is_super_admin ||
+            $user->isSuperAdmin() ||
 
             // The user has an "admin" authorization on the model instance.
-            $user->isAuthorizedAs($model->client, 'admin');
+            $user->isAuthorizedAs($model->client, 'client-admin');
     }
 
     public function forceDelete(User $user, User $model)
     {
         // The user is a super admin.
-        return $user->is_super_admin;
+        return $user->isSuperAdmin();
     }
 }

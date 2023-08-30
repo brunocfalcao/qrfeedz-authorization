@@ -20,13 +20,13 @@ class ClientPolicy
             $user->isAffiliateOf($model) ||
 
             // The user is a super admin.
-            $user->is_super_admin || (
+            $user->isSuperAdmin() || (
 
                 // The logged user belongs to the client instance.
                 $model->id == $user->client_id &&
 
                 // The logged user is "admin" on the client instance.
-                $user->isAuthorizedAs($model, 'admin')
+                $user->isAuthorizedAs($model, 'client-admin')
             );
     }
 
@@ -34,10 +34,10 @@ class ClientPolicy
     {
         return
             // The user is an affiliate.
-            $user->is_affiliate ||
+            $user->isAffiliate() ||
 
             // The user is a super admin.
-            $user->is_super_admin;
+            $user->isSuperAdmin();
     }
 
     public function update(User $user, Client $model)
@@ -47,13 +47,13 @@ class ClientPolicy
             $user->isAffiliateOf($model) ||
 
             // The user is a super admin.
-            $user->is_super_admin || (
+            $user->isSuperAdmin() || (
 
                 // The logged user belongs to the client instance.
                 $model->id == $user->client_id &&
 
                 // The logged user is "admin" on the client instance.
-                $user->isAuthorizedAs($model, 'admin')
+                $user->isAuthorizedAs($model, 'client-admin')
             );
     }
 
