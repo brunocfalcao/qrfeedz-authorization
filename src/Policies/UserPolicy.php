@@ -85,4 +85,9 @@ class UserPolicy
         // The user is a super admin.
         return $user->isSuperAdmin();
     }
+
+    public function replicate(User $user, User $model)
+    {
+        return false;
+    }
 }
