@@ -41,4 +41,9 @@ class AuthorizationPolicy
     {
         return $user->isSuperAdmin();
     }
+
+    public function replicate(User $user, Authorization $model)
+    {
+        return false;
+    }
 }
