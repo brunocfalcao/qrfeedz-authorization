@@ -25,7 +25,7 @@ class ClientPolicy
                 // The logged user belongs to the client instance.
                 $model->id == $user->client_id &&
 
-                // The logged user is "admin" on the client instance.
+                // The logged user is "client-admin" on the client instance.
                 $user->isAuthorizedAs($model, 'client-admin')
             );
     }
@@ -59,19 +59,25 @@ class ClientPolicy
 
     public function delete(User $user, Client $model)
     {
-        // TODO.
-        return false;
+        // The user is a super admin.
+        return $user->isSuperAdmin();
     }
 
     public function restore(User $user, Client $model)
     {
-        // TODO.
-        return true;
+        // We cannot force delete clients, neither restore them.
+        return false;
     }
 
     public function forceDelete(User $user, Client $model)
     {
-        // TODO.
-        return true;
+        // We cannot force delete clients, neither restore them.
+        return false;
+    }
+
+    public function replicate(User $user, Client $model)
+    {
+        // Replication is disabled for clients.
+        return false;
     }
 }
