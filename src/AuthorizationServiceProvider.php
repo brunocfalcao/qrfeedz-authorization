@@ -8,6 +8,7 @@ use QRFeedz\Authorization\Gates\CategoryGates;
 use QRFeedz\Authorization\Gates\ClientGates;
 use QRFeedz\Authorization\Gates\CountryGates;
 use QRFeedz\Authorization\Gates\LocaleGates;
+use QRFeedz\Authorization\Gates\LocationGates;
 use QRFeedz\Authorization\Gates\OpenAIPromptGates;
 use QRFeedz\Authorization\Gates\PageGates;
 use QRFeedz\Authorization\Gates\PageInstanceGates;
@@ -23,6 +24,7 @@ use QRFeedz\Authorization\Policies\CategoryPolicy;
 use QRFeedz\Authorization\Policies\ClientPolicy;
 use QRFeedz\Authorization\Policies\CountryPolicy;
 use QRFeedz\Authorization\Policies\LocalePolicy;
+use QRFeedz\Authorization\Policies\LocationPolicy;
 use QRFeedz\Authorization\Policies\OpenAIPromptPolicy;
 use QRFeedz\Authorization\Policies\PageInstancePolicy;
 use QRFeedz\Authorization\Policies\PagePolicy;
@@ -38,6 +40,7 @@ use QRFeedz\Cube\Models\Category;
 use QRFeedz\Cube\Models\Client;
 use QRFeedz\Cube\Models\Country;
 use QRFeedz\Cube\Models\Locale;
+use QRFeedz\Cube\Models\Location;
 use QRFeedz\Cube\Models\OpenAIPrompt;
 use QRFeedz\Cube\Models\Page;
 use QRFeedz\Cube\Models\PageInstance;
@@ -69,6 +72,7 @@ class AuthorizationServiceProvider extends QRFeedzServiceProvider
         PageGates::apply();
         WidgetGates::apply();
         LocaleGates::apply();
+        LocationGates::apply();
         ClientGates::apply();
         WidgetGates::apply();
         CountryGates::apply();
@@ -91,13 +95,14 @@ class AuthorizationServiceProvider extends QRFeedzServiceProvider
         Gate::policy(Locale::class, LocalePolicy::class);
         Gate::policy(Client::class, ClientPolicy::class);
         Gate::policy(Country::class, CountryPolicy::class);
+        Gate::policy(Location::class, LocationPolicy::class);
         Gate::policy(Category::class, CategoryPolicy::class);
-        Gate::policy(PageInstance::class, PageInstancePolicy::class);
         Gate::policy(Response::class, ResponsePolicy::class);
-        Gate::policy(WidgetInstance::class, WidgetInstancePolicy::class);
+        Gate::policy(PageInstance::class, PageInstancePolicy::class);
         Gate::policy(OpenAIPrompt::class, OpenAIPromptPolicy::class);
         Gate::policy(Questionnaire::class, QuestionnairePolicy::class);
         Gate::policy(Authorization::class, AuthorizationPolicy::class);
+        Gate::policy(WidgetInstance::class, WidgetInstancePolicy::class);
         Gate::policy(QuestionInstance::class, QuestionInstancePolicy::class);
     }
 }
