@@ -14,31 +14,40 @@ class LocalePolicy
 
     public function view(User $user, Locale $model)
     {
-        return true;
+        return
+            // Belongs to permissions to access admin.
+            $user->isAllowedAdminAccess();
     }
 
     public function create(User $user)
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     public function update(User $user, Locale $model)
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     public function delete(User $user, Locale $model)
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     public function restore(User $user, Locale $model)
     {
-        return true;
+        return false;
     }
 
     public function forceDelete(User $user, Locale $model)
     {
-        return true;
+        return false;
+    }
+
+
+    public function replicate(User $user, Locale $model)
+    {
+        // Replication is disabled.
+        return false;
     }
 }

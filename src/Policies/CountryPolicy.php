@@ -44,7 +44,7 @@ class CountryPolicy
 
     public function replicate(User $user, Country $model)
     {
-        // Replication is disabled for clients.
+        // Replication is disabled.
         return false;
     }
 

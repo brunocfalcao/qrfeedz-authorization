@@ -3,6 +3,7 @@
 namespace QRFeedz\Authorization\Policies;
 
 use QRFeedz\Cube\Models\Authorization;
+use QRFeedz\Cube\Models\Client;
 use QRFeedz\Cube\Models\User;
 
 class AuthorizationPolicy
@@ -43,6 +44,11 @@ class AuthorizationPolicy
     }
 
     public function replicate(User $user, Authorization $model)
+    {
+        return false;
+    }
+
+    public function attachAnyClient(User $user, Authorization $model)
     {
         return false;
     }
