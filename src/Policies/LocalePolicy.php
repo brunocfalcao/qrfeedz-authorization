@@ -44,7 +44,6 @@ class LocalePolicy
         return false;
     }
 
-
     public function replicate(User $user, Locale $model)
     {
         // Replication is disabled.
