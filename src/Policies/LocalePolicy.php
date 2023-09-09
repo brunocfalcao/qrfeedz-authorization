@@ -9,7 +9,7 @@ class LocalePolicy
 {
     public function viewAny(User $user)
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     public function view(User $user, Locale $model)
