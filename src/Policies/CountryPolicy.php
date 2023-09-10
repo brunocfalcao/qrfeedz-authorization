@@ -50,6 +50,6 @@ class CountryPolicy
 
     public function addLocation(User $user, Country $model)
     {
-        return false;
+        return true;
     }
 }

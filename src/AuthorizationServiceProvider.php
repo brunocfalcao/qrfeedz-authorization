@@ -95,7 +95,7 @@ class AuthorizationServiceProvider extends QRFeedzServiceProvider
         Gate::policy(Locale::class, LocalePolicy::class);
         Gate::policy(Client::class, ClientPolicy::class);
         Gate::policy(Country::class, CountryPolicy::class);
-        Gate::policy(Location::class, LocationPolicy::class);
+        //Gate::policy(Location::class, LocationPolicy::class);
         Gate::policy(Category::class, CategoryPolicy::class);
         Gate::policy(Response::class, ResponsePolicy::class);
         Gate::policy(PageInstance::class, PageInstancePolicy::class);
