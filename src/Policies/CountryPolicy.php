@@ -48,8 +48,9 @@ class CountryPolicy
         return false;
     }
 
-    public function addLocation(User $user, Country $model)
+    public function addUser(User $user, Country $model)
     {
+        //info(request()->url());
         return true;
     }
 }
