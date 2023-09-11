@@ -2,7 +2,6 @@
 
 namespace QRFeedz\Authorization\Policies;
 
-use QRFeedz\Cube\Models\Country;
 use QRFeedz\Cube\Models\Location;
 use QRFeedz\Cube\Models\User;
 
