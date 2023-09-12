@@ -41,4 +41,10 @@ class PagePolicy
     {
         return true;
     }
+
+    public function replicate(User $user, Page $model)
+    {
+        // Replication is disabled.
+        return false;
+    }
 }
