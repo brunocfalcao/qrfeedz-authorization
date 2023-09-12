@@ -9,37 +9,37 @@ class PagePolicy
 {
     public function viewAny(User $user)
     {
-        return true;
+        return $user->isAllowedAdminAccess();
     }
 
     public function view(User $user, Page $model)
     {
-        return true;
+        return $user->isAllowedAdminAccess();
     }
 
     public function create(User $user)
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     public function update(User $user, Page $model)
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     public function delete(User $user, Page $model)
     {
-        return true;
+        return $user->isSuperAdmin();
     }
 
     public function restore(User $user, Page $model)
     {
-        return true;
+        return false;
     }
 
     public function forceDelete(User $user, Page $model)
     {
-        return true;
+        return false;
     }
 
     public function replicate(User $user, Page $model)
