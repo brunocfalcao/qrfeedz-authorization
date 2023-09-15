@@ -46,6 +46,7 @@ use QRFeedz\Cube\Models\Page;
 use QRFeedz\Cube\Models\PageInstance;
 use QRFeedz\Cube\Models\QuestionInstance;
 use QRFeedz\Cube\Models\Questionnaire;
+use QRFeedz\Cube\Models\Response;
 use QRFeedz\Cube\Models\Tag;
 use QRFeedz\Cube\Models\User;
 use QRFeedz\Cube\Models\Widget;
@@ -95,7 +96,7 @@ class AuthorizationServiceProvider extends QRFeedzServiceProvider
         Gate::policy(Locale::class, LocalePolicy::class);
         Gate::policy(Client::class, ClientPolicy::class);
         Gate::policy(Country::class, CountryPolicy::class);
-        //Gate::policy(Location::class, LocationPolicy::class);
+        Gate::policy(Location::class, LocationPolicy::class);
         Gate::policy(Category::class, CategoryPolicy::class);
         Gate::policy(Response::class, ResponsePolicy::class);
         Gate::policy(PageInstance::class, PageInstancePolicy::class);
